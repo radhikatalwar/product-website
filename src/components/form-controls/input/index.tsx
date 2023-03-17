@@ -1,4 +1,6 @@
 import { FC, memo } from "react";
+import { useField } from "formik";
+
 import { Box, TextField, TextFieldProps, Typography } from "@mui/material";
 import { InputProps } from "./type";
 import styles from "./styles";
@@ -11,10 +13,14 @@ const Input: FC<InputProps & TextFieldProps> = ({
   isRequired = false,
   ...otherProps
 }) => {
+  const [field, meta] = useField(name);
+
   const attributes: TextFieldProps = {
+    ...field,
     ...otherProps,
+    error: meta.touched && Boolean(meta.error),
     placeholder: `${placeholder}${isRequired ? "*" : ""}`,
-    sx: [styles.searchInput],
+    sx: [styles.input],
     autoComplete: "off",
   };
 
@@ -31,6 +37,9 @@ const Input: FC<InputProps & TextFieldProps> = ({
         </Typography>
       )}
       <TextField {...attributes} />
+      {meta.touched && Boolean(meta.error) && (
+        <Typography>{meta.error}</Typography>
+      )}
     </Box>
   );
 };

@@ -1,24 +1,24 @@
 import { ChangeEvent, useEffect } from "react";
 import { Box, Typography } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-// import useBookingHelper from "./helper";
-// import BookingManagementTable from "../../../components/tableList/booking";
-// import ConfirmationContainer, {
-//   YesCancelPopUp,
-// } from "../../../components/pop-ups/confimation";
 import { productListingStyles as styles } from "./styles";
-import SimpleModal from "../../components/modal/modal";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { getAllProducts } from "./services/actions";
 import ProductTable from "./productTable";
 import useProductHelper from "./helper";
+import { setProductQueryParameter } from "./services/slices";
+import ContainedButton from "../../components/button/contained-button";
 
 const ProductListing = () => {
   const dispatch = useAppDispatch();
+  const { handleSearch, searchValue, handleNavigateAdd } = useProductHelper();
+
   useEffect(() => {
     dispatch(getAllProducts());
+    return () => {
+      dispatch(setProductQueryParameter({ search: "" }));
+    };
   }, []);
-  const { handleSearch, searchValue, setSearchValue } = useProductHelper();
 
   return (
     <Box sx={styles.mainContainer}>
@@ -37,20 +37,12 @@ const ProductListing = () => {
             />
             <SearchIcon sx={styles.icon} />
           </Box>
+          <ContainedButton
+            title="+ Add Product"
+            externalStyles={styles.btn}
+            onClick={handleNavigateAdd}
+          />
         </Box>
-        {/* <SimpleModal
-            handleClose={handleConfirmationClose}
-            isOpen={isConfirmationOpen}
-          >
-            <ConfirmationContainer>
-              <YesCancelPopUp
-                message="Are you sure you want to export the list?"
-                logo={IMAGES.Checked}
-                handleClose={handleConfirmationClose}
-                handleConfirm={() => {}}
-              />
-            </ConfirmationContainer>
-          </SimpleModal> */}
       </Box>
       <ProductTable />
     </Box>

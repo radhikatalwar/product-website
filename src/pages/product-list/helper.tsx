@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Paths } from "../../common/constants/paths";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { useAppSelector } from "../../hooks/useAppSelector";
-import { getAllProducts } from "./services/actions";
+import { deleteProduct, getAllProducts } from "./services/actions";
 import { setProductQueryParameter, setProducts } from "./services/slices";
 
 const useProductHelper = () => {
@@ -38,8 +38,11 @@ const useProductHelper = () => {
   };
 
   const handleDelete = (id: number) => {
-    const filteredData = productList.products.filter((prod) => prod.id !== id);
-    dispatch(setProducts({ ...productList, products: filteredData }));
+    dispatch(deleteProduct(id));
+  };
+
+  const handleNavigateAdd = () => {
+    navigate(Paths.ADD_PRODUCT);
   };
 
   return {
@@ -49,6 +52,7 @@ const useProductHelper = () => {
     dispatch,
     handleNavigate,
     handleDelete,
+    handleNavigateAdd,
   };
 };
 

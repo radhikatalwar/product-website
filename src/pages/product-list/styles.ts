@@ -47,6 +47,7 @@ export const productListingStyles = {
     width: "100%",
   },
   icon: { width: "24px", height: "24px", color: "#606060" },
+  btn: { marginLeft: "20px", borderRadius: "5px" },
 };
 
 export const productTable = {

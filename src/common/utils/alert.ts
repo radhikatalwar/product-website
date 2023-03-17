@@ -23,6 +23,8 @@ export const showAlert = (type: number, message: string = commonErr) => {
         const id: any = toast.success(message, {
           onClose: () => toastList.delete(id),
           icon: false,
+          className:
+            ".Toastify__toast--success toast-info-container toast-info-container-after",
           position: toast.POSITION.TOP_RIGHT,
         });
         toastList.add(id);
@@ -34,6 +36,8 @@ export const showAlert = (type: number, message: string = commonErr) => {
         const id: any = toast.error(message, {
           onClose: () => toastList.delete(id),
           position: toast.POSITION.TOP_RIGHT,
+          className:
+            ".Toastify__toast--error toast-info-container toast-info-container-after",
           icon: false,
         });
         toastList.add(id);

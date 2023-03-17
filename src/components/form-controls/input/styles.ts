@@ -1,24 +1,18 @@
 import { COLORS } from "../../../common/constants/colors";
 
 const styles = {
-  searchInput: {
-    background: "#FFFFFF 0% 0% no-repeat padding-box",
-    borderRadius: "4px",
-    width: "300px",
+  input: {
+    padding: "5px 0 10px 0",
     "& .MuiInputBase-root": {
       height: "36px",
-      font: "normal normal normal 14px/20px Roboto",
-      letterSpacing: "0.05px",
+      font: "normal normal normal 14px/20px sans-serif",
       color: "#515151",
       opacity: 1,
     },
-    "& svg": {
-      cursor: "pointer",
-    },
+    "& svg": { cursor: "pointer" },
   },
   label: {
-    font: "normal normal 500 14px/14px SofiaPro",
-    letterSpacing: "0.59px",
+    font: "normal normal 500 14px/14px sans-serif",
     transition: "ease-in 0.5s",
     color: COLORS.black,
   },

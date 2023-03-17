@@ -123,7 +123,6 @@ const patchApiCall = (
     });
 };
 
-/** Not using during this assignment , use if needed */
 const deleteApiCall = (
   endPoint: string,
   params: any,

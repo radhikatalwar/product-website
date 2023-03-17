@@ -12,11 +12,6 @@ export const ViewProductStyles = {
     padding: "20px",
     "& svg": { color: COLORS.primary, cursor: "pointer" },
   },
-  headingContainer: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
   heading: {
     font: "normal normal 700 30px/35px sans-serif",
     color: COLORS.primary,
