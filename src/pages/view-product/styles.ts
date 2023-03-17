@@ -31,7 +31,7 @@ export const ViewProductStyles = {
   image: {
     height: "200px",
     borderRadius: "6px",
-    maxWidth: "25%",
+    maxWidth: "24%",
     margin: "10px 0",
   },
   avatar: { height: "30px", width: "30px", margin: "0 10px" },

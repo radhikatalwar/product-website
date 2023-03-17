@@ -6,6 +6,7 @@ import { useAppDispatch } from "../../hooks/useAppDispatch";
 import useViewProductHelper from "./helper";
 import { getSpecificProduct } from "./services/actions";
 import { useAppSelector } from "../../hooks/useAppSelector";
+import ProductTile from "./productTile";
 
 const ViewProduct = () => {
   const dispatch = useAppDispatch();
@@ -39,6 +40,7 @@ const ViewProduct = () => {
         {images.map((image: string) => {
           return (
             <Box
+              key={image}
               component="img"
               src={image}
               alt="about-image"
@@ -48,40 +50,20 @@ const ViewProduct = () => {
         })}
       </Box>
       <Stack sx={styles.cardContainer} direction="row" spacing={3}>
-        <Stack sx={styles.textContainer} spacing={1}>
-          <Typography sx={styles.detailHeading}>Description</Typography>
-          <Typography sx={styles.detail}>{description ?? "-"}</Typography>
-        </Stack>
+        <ProductTile heading="Description" value={description ?? "-"} />
       </Stack>
       <Stack sx={styles.cardContainer} direction="row" spacing={3}>
-        <Stack sx={styles.textContainer} spacing={1}>
-          <Typography sx={styles.detailHeading}>Brand</Typography>
-          <Typography sx={styles.detail}>{brand ?? "-"}</Typography>
-        </Stack>
-        <Stack sx={styles.textContainer} spacing={1}>
-          <Typography sx={styles.detailHeading}>Category</Typography>
-          <Typography sx={styles.detail}>{category ?? "-"}</Typography>
-        </Stack>
-        <Stack sx={styles.textContainer} spacing={1}>
-          <Typography sx={styles.detailHeading}>Price</Typography>
-          <Typography sx={styles.detail}>{price ?? "-"}</Typography>
-        </Stack>
+        <ProductTile heading="Brand" value={brand ?? "-"} />
+        <ProductTile heading="Category" value={category ?? "-"} />
+        <ProductTile heading="Price" value={price ?? "-"} />
       </Stack>
       <Stack sx={styles.cardContainer} direction="row" spacing={3}>
-        <Stack sx={styles.textContainer} spacing={1}>
-          <Typography sx={styles.detailHeading}>Rating</Typography>
-          <Typography sx={styles.detail}>{rating ?? "-"}</Typography>
-        </Stack>
-        <Stack sx={styles.textContainer} spacing={1}>
-          <Typography sx={styles.detailHeading}>Stock</Typography>
-          <Typography sx={styles.detail}>{stock ?? "-"}</Typography>
-        </Stack>
-        <Stack sx={styles.textContainer} spacing={1}>
-          <Typography sx={styles.detailHeading}>Discount Percentage</Typography>
-          <Typography sx={styles.detail}>
-            {discountPercentage ?? "-"}
-          </Typography>
-        </Stack>
+        <ProductTile heading="Rating" value={rating ?? "-"} />
+        <ProductTile heading="Stock" value={stock ?? "-"} />
+        <ProductTile
+          heading="Discount Percentage"
+          value={discountPercentage ?? "-"}
+        />
       </Stack>
     </Box>
   );

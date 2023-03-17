@@ -18,7 +18,7 @@ import useProductHelper from "./helper";
 
 const ProductTable = () => {
   const { productList } = useAppSelector((state) => state.products);
-  const { handleNavigate } = useProductHelper();
+  const { handleNavigate, handleDelete } = useProductHelper();
 
   return (
     <TableContainer>
@@ -69,7 +69,7 @@ const ProductTable = () => {
                   <TableCell>{discountPercentage ?? ""}</TableCell>
                   <TableCell>
                     <VisibilityIcon onClick={() => handleNavigate(id)} />
-                    <DeleteIcon />
+                    <DeleteIcon onClick={() => handleDelete(id)} />
                   </TableCell>
                 </TableRow>
               );

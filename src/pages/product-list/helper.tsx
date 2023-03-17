@@ -2,12 +2,14 @@ import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Paths } from "../../common/constants/paths";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
+import { useAppSelector } from "../../hooks/useAppSelector";
 import { getAllProducts } from "./services/actions";
-import { setProductQueryParameter } from "./services/slices";
+import { setProductQueryParameter, setProducts } from "./services/slices";
 
 const useProductHelper = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const { productList } = useAppSelector((state) => state.products);
   const [searchValue, setSearchValue] = useState("");
 
   const debounceCount = useRef(0);
@@ -35,12 +37,18 @@ const useProductHelper = () => {
     navigate(`${Paths.VIEW_PRODUCT}?id=${id}`);
   };
 
+  const handleDelete = (id: number) => {
+    const filteredData = productList.products.filter((prod) => prod.id !== id);
+    dispatch(setProducts({ ...productList, products: filteredData }));
+  };
+
   return {
     handleSearch,
     searchValue,
     setSearchValue,
     dispatch,
     handleNavigate,
+    handleDelete,
   };
 };
 
