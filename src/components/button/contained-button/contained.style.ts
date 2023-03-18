@@ -15,6 +15,11 @@ const styles = {
         background: `linear-gradient(30.99deg, ${COLORS.primary} 0%, ${COLORS.lightBlue} 100%)`,
         color: COLORS.white,
       },
+      "&:disabled": {
+        background: COLORS.disable,
+        color: `${COLORS.black} !important`,
+        boxShadow: "0px 1px 1px rgba(0, 0, 0, 0.15)",
+      },
     },
   },
 };

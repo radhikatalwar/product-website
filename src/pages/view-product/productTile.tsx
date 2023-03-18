@@ -1,12 +1,12 @@
 import { Stack, Typography } from "@mui/material";
 import { ViewProductStyles as styles } from "./styles";
 
-interface ProductTile {
+interface ProductTileProps {
   heading: string;
   value: string | number;
 }
 
-const ProductTile = ({ heading, value }: ProductTile) => {
+const ProductTile = ({ heading, value }: ProductTileProps) => {
   return (
     <Stack sx={styles.textContainer} spacing={1}>
       <Typography sx={styles.detailHeading}>{heading}</Typography>

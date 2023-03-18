@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Form, Formik } from "formik";
 
 import { Box, Typography } from "@mui/material";
@@ -11,6 +10,7 @@ import ContainedButton from "../../components/button/contained-button";
 import Input from "../../components/form-controls/input";
 import { useNavigate } from "react-router-dom";
 import { Paths } from "../../common/constants/paths";
+import Schema from "../../common/constants/schema";
 
 const AddProduct = () => {
   const dispatch = useAppDispatch();
@@ -26,7 +26,7 @@ const AddProduct = () => {
       <Formik
         enableReinitialize
         initialValues={{ ...initialvalue }}
-        // validationSchema={Schema.FAQForm}
+        validationSchema={Schema.ProductForm}
         onSubmit={(values: typeof initialvalue) => {
           dispatch(
             productAdd(values, () => {
@@ -45,76 +45,94 @@ const AddProduct = () => {
                 justifyContent="space-between"
               >
                 <Box>
-                  <Box sx={styles.textBoxContainer}>
-                    <Input
-                      name="title"
-                      type="text"
-                      label="Title"
-                      placeholder="Title"
-                      fullWidth
-                      externalStyles={styles.inputField}
-                    />
+                  <Box display="flex">
+                    <Box sx={styles.textBoxContainer}>
+                      <Input
+                        name="title"
+                        type="text"
+                        label="Title"
+                        placeholder="Title"
+                        fullWidth
+                        externalStyles={styles.inputField}
+                      />
+                    </Box>
+                    <>{console.log(values, errors)}</>
+                    <Box sx={styles.textBoxContainer}>
+                      <Input
+                        name="brand"
+                        type="text"
+                        label="Brand"
+                        placeholder="Brand"
+                        fullWidth
+                        externalStyles={styles.inputField}
+                      />
+                    </Box>
                   </Box>
-                  <>{console.log(values, errors)}</>
-                  <Box sx={styles.textBoxContainer}>
-                    <Input
-                      name="brand"
-                      type="text"
-                      label="Brand"
-                      placeholder="Brand"
-                      fullWidth
-                      externalStyles={styles.inputField}
-                    />
+                  <Box display="flex">
+                    <Box sx={styles.textBoxContainer}>
+                      <Input
+                        name="category"
+                        type="text"
+                        label="Category"
+                        placeholder="Category"
+                        fullWidth
+                        externalStyles={styles.inputField}
+                      />
+                    </Box>
+                    <Box sx={styles.textBoxContainer}>
+                      <Input
+                        name="discountPercentage"
+                        type="text"
+                        label="Discount Percentage"
+                        placeholder="Discount Percentage"
+                        fullWidth
+                        externalStyles={styles.inputField}
+                      />
+                    </Box>
                   </Box>
-                  <Box sx={styles.textBoxContainer}>
-                    <Input
-                      name="category"
-                      type="text"
-                      label="Category"
-                      placeholder="Category"
-                      fullWidth
-                      externalStyles={styles.inputField}
-                    />
+                  <Box display="flex">
+                    <Box sx={styles.textBoxContainer}>
+                      <Input
+                        name="stock"
+                        type="text"
+                        label="Stock"
+                        placeholder="Stock"
+                        fullWidth
+                        externalStyles={styles.inputField}
+                      />
+                    </Box>
+                    <Box sx={styles.textBoxContainer}>
+                      <Input
+                        name="price"
+                        type="text"
+                        label="Price"
+                        placeholder="Price"
+                        fullWidth
+                        externalStyles={styles.inputField}
+                      />
+                    </Box>
                   </Box>
-                  <Box sx={styles.textBoxContainer}>
-                    <Input
-                      name="discountPercentage"
-                      type="text"
-                      label="Discount Percentage"
-                      placeholder="Discount Percentage"
-                      fullWidth
-                      externalStyles={styles.inputField}
-                    />
-                  </Box>
-                  <Box sx={styles.textBoxContainer}>
-                    <Input
-                      name="stock"
-                      type="text"
-                      label="Stock"
-                      placeholder="Stock"
-                      fullWidth
-                      externalStyles={styles.inputField}
-                    />
-                  </Box>
-                  <Box sx={styles.textBoxContainer}>
-                    <Input
-                      name="price"
-                      type="text"
-                      label="Price"
-                      placeholder="Price"
-                      fullWidth
-                      externalStyles={styles.inputField}
-                    />
-                  </Box>
-                  <Box sx={styles.textBoxContainer}>
-                    <Input
-                      name="rating"
-                      type="text"
-                      label="Rating"
-                      placeholder="Rating"
-                      fullWidth
-                      externalStyles={styles.inputField}
-                    />
+                  <Box display="flex">
+                    <Box sx={styles.textBoxContainer}>
+                      <Input
+                        name="rating"
+                        type="text"
+                        label="Rating"
+                        placeholder="Rating"
+                        fullWidth
+                        externalStyles={styles.inputField}
+                      />
+                    </Box>
+                    <Box sx={styles.textBoxContainer}>
+                      <Input
+                        name="thumbnail"
+                        type="text"
+                        label="Thumbnail"
+                        placeholder="Thumbnail"
+                        fullWidth
+                        externalStyles={styles.inputField}
+                      />
+                    </Box>
                   </Box>
                   <Box sx={styles.textBoxContainer}>
                     <Input
@@ -124,6 +142,8 @@ const AddProduct = () => {
                       placeholder="Description"
                       fullWidth
                       externalStyles={styles.inputField}
+                      multiline
+                      minRows={3}
                     />
                   </Box>
                 </Box>
@@ -132,7 +152,7 @@ const AddProduct = () => {
                     type="submit"
                     externalStyles={styles.btn}
                     title="Save"
-                    // disabled={!(isValid && dirty)}
+                    disabled={!(isValid && dirty)}
                   />
                 </Box>
               </Box>

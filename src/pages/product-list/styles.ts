@@ -46,7 +46,7 @@ export const productListingStyles = {
     transition: "all 0.4s ease-out",
     width: "100%",
   },
-  icon: { width: "24px", height: "24px", color: "#606060" },
+  icon: { width: "24px", height: "24px", color: COLORS.icon },
   btn: { marginLeft: "20px", borderRadius: "5px" },
 };
 

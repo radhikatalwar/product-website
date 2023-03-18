@@ -17,6 +17,7 @@ const useAddProductHelper = () => {
     stock: "",
     brand: "",
     category: "",
+    thumbnail: "",
   };
 
   const handleNavigate = () => {

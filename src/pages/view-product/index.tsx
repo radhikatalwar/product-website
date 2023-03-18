@@ -27,7 +27,7 @@ const ViewProduct = () => {
 
   useEffect(() => {
     dispatch(getSpecificProduct(slugId));
-  }, []);
+  }, [dispatch, slugId]);
 
   return (
     <Box sx={styles.mainContainer}>

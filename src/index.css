@@ -14,7 +14,7 @@ code {
 
 .Toastify__toast--success {
   color: #fff !important;
-  font-family: "SofiaPro", sans-serif !important;
+  font-family: sans-serif !important;
   border-radius: 2px !important;
   text-align: left;
   box-shadow: 0 4px 34px 0 rgba(50, 160, 113, 0.24) !important;
@@ -24,7 +24,7 @@ code {
 .Toastify__toast--error {
   color: #fff !important;
   background: #e71515 !important;
-  font-family: "SofiaPro", sans-serif !important;
+  font-family: sans-serif !important;
   border-radius: 2px;
   text-align: left;
   padding: 20px;
@@ -34,7 +34,7 @@ code {
   color: #fff !important;
   box-shadow: 0 4px 34px 0 rgba(32, 97, 168, 0.24);
   background-color: #2061a8;
-  font-family: "SofiaPro", sans-serif !important;
+  font-family: sans-serif !important;
   border-radius: 2px;
   text-align: left;
   padding: 20px;

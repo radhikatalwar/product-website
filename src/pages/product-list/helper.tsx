@@ -2,14 +2,12 @@ import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Paths } from "../../common/constants/paths";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
-import { useAppSelector } from "../../hooks/useAppSelector";
 import { deleteProduct, getAllProducts } from "./services/actions";
-import { setProductQueryParameter, setProducts } from "./services/slices";
+import { setProductQueryParameter } from "./services/slices";
 
 const useProductHelper = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const { productList } = useAppSelector((state) => state.products);
   const [searchValue, setSearchValue] = useState("");
 
   const debounceCount = useRef(0);

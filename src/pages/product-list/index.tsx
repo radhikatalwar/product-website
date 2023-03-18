@@ -18,7 +18,7 @@ const ProductListing = () => {
     return () => {
       dispatch(setProductQueryParameter({ search: "" }));
     };
-  }, []);
+  }, [dispatch]);
 
   return (
     <Box sx={styles.mainContainer}>

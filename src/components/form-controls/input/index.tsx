@@ -37,9 +37,9 @@ const Input: FC<InputProps & TextFieldProps> = ({
         </Typography>
       )}
       <TextField {...attributes} />
-      {meta.touched && Boolean(meta.error) && (
-        <Typography>{meta.error}</Typography>
-      )}
+      {meta.touched && Boolean(meta.error) ? (
+        <Typography sx={styles.error}>{meta.error}</Typography>
+      ) : null}
     </Box>
   );
 };
